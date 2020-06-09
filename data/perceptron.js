@@ -13,7 +13,7 @@ class Perceptron {
         for (let i = 0; i < this.weights.length; i++) {
             sum += inputs[i] * this.weights[i];
         }
-        return sum >= 0 ? 1 : -1;           //sign function
+        return sum >= 0 ? sum : 0;           //ReLu function
     }
 
     train(inputs){
