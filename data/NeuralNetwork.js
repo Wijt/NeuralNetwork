@@ -1,6 +1,6 @@
 class NeuralNetwork {
-    constructor(inputC, hiddenC, outpuC) {
-        this.size = {input: inputC, hidden: hiddenC, output: outpuC};
+    constructor(inputC, hiddenC, outputC) {
+        this.size = {input: inputC, hidden: hiddenC, output: outputC};
         this.perceptrons = [];
         this.hiddenP = [];
         this.outputP = [];
@@ -20,10 +20,10 @@ class NeuralNetwork {
         let hiddenOutputs = [];
         let returnV = [];
         for (let i = 0; i < this.size.hidden; i++) {
-            hiddenOutputs.push(this.perceptrons[0].fire(inputs));
+            hiddenOutputs.push(this.perceptrons[0][i].fire(inputs));
         }
         for (let i = 0; i < this.size.output; i++) {
-            returnV.push(this.perceptrons[1].fire(hiddenOutputs));
+            returnV.push(this.perceptrons[1][i].fire(hiddenOutputs));
         }
         return returnV;
     }

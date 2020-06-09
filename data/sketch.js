@@ -8,6 +8,7 @@ let p;
 
 let min = {x: null, y: null}, max = {x: null, y: null};
 
+let nn;
 
 function centerScaleCanvas(canvas){
     let margin = 50;
@@ -39,6 +40,9 @@ function setup(){
     new Separator(function(x) { return 0.4*x-100; }, 2, "#F15025");
     new Separator(function (x) { return (-p.weights[2] - p.weights[0] * x) / p.weights[1]; }, 2, "#2BA84A");
     
+    nn = new NeuralNetwork(2,2,1);
+    let output = nn.feedForward([1,0]);
+    console.table(output);
     /*for (let i = 0; i < 5000000; i++) {
         nextDot();
     }*/
@@ -58,7 +62,7 @@ function nextDot(){
 
 function draw() {
     frameRate(180)
-    nextDot();  
+    //nextDot();  
     /*for (let i = 0; i < dots.length; i++) {
         nextDot();
     }*/
