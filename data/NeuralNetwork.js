@@ -15,4 +15,16 @@ class NeuralNetwork {
         this.perceptrons.push(this.hiddenP);
         this.perceptrons.push(this.outputP);
     }
+
+    feedForward(inputs){
+        let hiddenOutputs = [];
+        let returnV = [];
+        for (let i = 0; i < this.size.hidden; i++) {
+            hiddenOutputs.push(this.perceptrons[0].fire(inputs));
+        }
+        for (let i = 0; i < this.size.output; i++) {
+            returnV.push(this.perceptrons[1].fire(hiddenOutputs));
+        }
+        return returnV;
+    }
 }
