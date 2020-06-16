@@ -40,8 +40,8 @@ function setup(){
     new Separator(function(x) { return 0.4*x-100; }, 2, "#F15025");
     new Separator(function (x) { return (-p.weights[2] - p.weights[0] * x) / p.weights[1]; }, 2, "#2BA84A");
     
-    nn = new NeuralNetwork(2,2,1);
-    let output = nn.feedForward([1,0]);
+    nn = new NeuralNetwork([2,2,1]);
+    let output = nn.feedForward([0,1]);
     console.table(output);
     /*for (let i = 0; i < 5000000; i++) {
         nextDot();
